@@ -1,0 +1,19 @@
+{
+  "name": "harmo-grunt",
+  "version": "1.0.0",
+  "description": "harmo grunt tutorial for GIS team",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/boualikamel/harmo-grunt.git"
+  },
+  "author": "Bouali Kamel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/boualikamel/harmo-grunt/issues"
+  },
+  "homepage": "https://github.com/boualikamel/harmo-grunt#readme"
+}
