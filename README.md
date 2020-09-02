@@ -39,7 +39,6 @@ we add a code below for loading the library from node modules
  grunt.loadNpmTasks("grunt-sass");
  grunt.loadNpmTasks("grunt-html-build");
  grunt.loadNpmTasks('grunt-babel');
-
 `
 ### building our html file
 we add a html file, index.html
@@ -70,7 +69,7 @@ we install `node-sass` and import it into our gruntfile
 
 then we add the config of sass task here we define the sources and destination files
 
-` sass: {
+`sass: {
         options: {
           implementation: sass,
           sourceMap: false,
