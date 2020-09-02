@@ -137,8 +137,11 @@ concat_css: {
           ],
           dest: "dist/style.min.css",
         },
-      },
-       concat: {
+      }
+```
+
+```js
+concat: {
         options: {
           separator: ";",
         },
