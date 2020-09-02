@@ -31,7 +31,7 @@ we install the uglify code
   grunt html is for building html code
 
 we add a code below for loading the library from node modules
-`
+```js
  grunt.loadNpmTasks("grunt-contrib-concat");
  grunt.loadNpmTasks("grunt-contrib-uglify");
  grunt.loadNpmTasks("grunt-contrib-cssmin");
@@ -39,7 +39,7 @@ we add a code below for loading the library from node modules
  grunt.loadNpmTasks("grunt-sass");
  grunt.loadNpmTasks("grunt-html-build");
  grunt.loadNpmTasks('grunt-babel');
-`
+```
 ### building our html file
 we add a html file, index.html
 and than we add a link balise referencing to our destination file css after minify and concat we call it style.min.css
