@@ -2,27 +2,35 @@
 a tutorial grunt for the team
 ### initialize your node project with npm init
 ### Creation Gruntfile file
-`module.exports = function (grunt) {
+```js 
+module.exports = function (grunt) {
   grunt.initConfig({
   });
-};`
+};
+```
 ### installing grunt and grunt-cli into devDependency and adding the CMD to package.json
 `npm i -d grunt grunt-cli`
 `"start": "grunt"`
 ### adding the commende to execute the tasks
-```shell grunt.registerTask("default", [  ]);```
+```shell 
+grunt.registerTask("default", [  ]);
+```
 
 ## Adding and configuring our tasks !
 ### Adding the source code
 here we create the src folder and the main js file to test a task before
 ### Adding the first task :o to uglify the code
 we install the uglify code
-```shell npm i -d grunt-contrib-uglify ```
+```shell 
+npm i -d grunt-contrib-uglify 
+```
  we add this line to load the library from node modules into our gruntfile `grunt.loadNpmTasks('grunt-contrib-uglify');`
  and we add the task to the default task of grunt for the execution
  `grunt.registerTask("default", [ "uglify" ]);`
  ### Adding the other tasks of libraries css minify, concat, babel and sass and build html, clean
-`npm i -d grunt-sass grunt-babel grunt-contrib-cssmin grunt-contrib-concat grunt-html-build`
+```shell 
+npm i -d grunt-sass grunt-babel grunt-contrib-cssmin grunt-contrib-concat grunt-html-build
+```
  
   grunt sass is for compiling the sass code to css code
   grunt babel is for compîling the ecmascript advanced version to a es5 code
@@ -46,7 +54,7 @@ and than we add a link balise referencing to our destination file css after mini
 `<link rel="stylesheet" href="style.min.css">`
 
 Than we configure our second task for building html we define the source file and destination folder and some option to beautify for example our html file 
-`
+```js 
      htmlbuild: {
         dist: {
           src: "src/index.html",
@@ -61,7 +69,7 @@ Than we configure our second task for building html we define the source file an
           },
         },
       },
-      `
+ ```
 
 ### compile our sass file
 we add a first sass file, call it main.scss in sass folder
@@ -69,7 +77,8 @@ we install `node-sass` and import it into our gruntfile
 
 then we add the config of sass task here we define the sources and destination files
 
-`sass: {
+```js
+sass: {
         options: {
           implementation: sass,
           sourceMap: false,
@@ -79,13 +88,15 @@ then we add the config of sass task here we define the sources and destination f
             "dist/style.min.css": "src/sass/main.scss",
           },
         },
-      },`
+      },
+```
 
 ### compile our babel code file
 we add @babel/core and @babel/preset-env libraries into our project this libraries is necessary to babel task for building our code
 
 we define the source file here and the destination file like that and we will change the order of tasks and start from babel to uglify, it means we compile our code into ecmascript 5 and after that we uglify it
-`    babel: {
+```js    
+babel: {
         options: {
           sourceMap: true,
           presets: ["@babel/preset-env"],
@@ -95,10 +106,11 @@ we define the source file here and the destination file like that and we will ch
             "dist/main.min.js": ["src/main.js"],
           },
         },
-      },`
+      }
+```
 
       and the uglify config will be like ( the source file will change and become the result of babel compiling )
-      `
+      ```js    
         uglify: {
         my_target: {
           files: {
@@ -106,7 +118,7 @@ we define the source file here and the destination file like that and we will ch
           },
         },
       },
-      `
+      ```
     the order of the tasks will be 
     `grunt.registerTask("default", ["htmlbuild", "sass","babel","uglify"]);`
   
@@ -114,7 +126,8 @@ we define the source file here and the destination file like that and we will ch
 
 the configuration is very clear and after adding two libraries bootstrap and chart.js 
 
-`     concat_css: {
+```js    
+concat_css: {
         all: {
           src: [
             "dist/style.min.css",
@@ -137,10 +150,10 @@ the configuration is very clear and after adding two libraries bootstrap and cha
         },
       },
       
-      `
+```
 ### minify our css file 
 after adding the library we will use it and minify the result file `grunt-contrib-cssmin`
-`
+```js
 cssmin: {
   options: {
     mergeIntoShorthands: false,
@@ -152,19 +165,22 @@ cssmin: {
     }
   }
 }
-`
+```
  ### preparing the dev server and hot reload
 
 installation du connect pour activer l'auto-load dans un serveur de développement et le watch pour reloader les tasks qu'on veut reloader
 
 `npm i -d grunt-contrib-connect grunt-contrib-watch`
 
- `grunt.loadNpmTasks("grunt-contrib-connect");
-  grunt.loadNpmTasks("grunt-contrib-watch");`
+```js
+ grunt.loadNpmTasks("grunt-contrib-connect");
+  grunt.loadNpmTasks("grunt-contrib-watch");
+```
 
 here we add 
 
-   ` watch: {
+```js 
+   watch: {
       options: {
         livereload: true,
       },
@@ -181,10 +197,11 @@ here we add
         tasks: ["htmlbuild"],
       },
  
-    },`
+    },
+```
 
 here we added a server and the base for detecting any changes to reload a page
-    `
+```js
         connect: {
       server: {
         options: {
@@ -197,6 +214,6 @@ here we added a server and the base for detecting any changes to reload a page
         },
       },
     },
-    `
+```
 
     and finally we add a personalized task for developpement server
