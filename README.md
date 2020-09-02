@@ -68,7 +68,7 @@ Than we configure our second task for building html we define the source file an
             },
           },
         },
-      },
+      }
  ```
 
 ### compile our sass file
@@ -94,7 +94,7 @@ sass: {
 ### compile our babel code file
 we add @babel/core and @babel/preset-env libraries into our project this libraries is necessary to babel task for building our code
 
-we define the source file here and the destination file like that and we will change the order of tasks and start from babel to uglify, it means we compile our code into ecmascript 5 and after that we uglify it
+we define the source file here and the destination file like that and we will change the order of tasks and start from babel to uglify, it means we compile our code into ecmascript 5 and after that we uglify it.
 ```js    
 babel: {
         options: {
@@ -109,8 +109,8 @@ babel: {
       }
 ```
 
-      and the uglify config will be like ( the source file will change and become the result of babel compiling )
-      ```js    
+and the uglify config will be like the source file will change and become the result of babel compiling
+```js    
         uglify: {
         my_target: {
           files: {
@@ -118,14 +118,15 @@ babel: {
           },
         },
       },
-      ```
-    the order of the tasks will be 
-    `grunt.registerTask("default", ["htmlbuild", "sass","babel","uglify"]);`
-  
+```
+the order of the tasks will be 
+
+```js
+grunt.registerTask("default", ["htmlbuild", "sass","babel","uglify"]);`
+```  
 ### concat our js libraries and concat our css libraries and file code file
 
 the configuration is very clear and after adding two libraries bootstrap and chart.js 
-
 ```js    
 concat_css: {
         all: {
@@ -202,7 +203,7 @@ here we add
 
 here we added a server and the base for detecting any changes to reload a page
 ```js
-        connect: {
+     connect: {
       server: {
         options: {
           port: 9000,
@@ -216,4 +217,4 @@ here we added a server and the base for detecting any changes to reload a page
     },
 ```
 
-    and finally we add a personalized task for developpement server
+ and finally we add a personalized task for developpement server
